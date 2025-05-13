@@ -23,7 +23,7 @@ jobs:
           cd demo-three
           rm -rf plugins
           mkdir plugins && cd plugins
-          git clone https://github.com/dishitpala/demo-plugins.git
+          git clone https://github.com/dishitpala/demo-plugins.git .
           ls -al
           pwd
           rm -rf .git
