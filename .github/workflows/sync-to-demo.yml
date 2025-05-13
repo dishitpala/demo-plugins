@@ -11,9 +11,6 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout demo-plugins
-        uses: actions/checkout@v3
-
       - name: Set up Git
         run: |
           git config --global user.name "dishitpala"
@@ -22,15 +19,15 @@ jobs:
       - name: Sync plugins to:- demo-three
         run: |
           git clone https://dishitpala:${{ secrets.DEMO_PLUGINS_TOKEN }}@github.com/dishitpala/demo-three.git "/home/runner/work/demo-three"
+          cd "/home/runner/work/demo-three"
           git checkout ${{ github.ref_name }}
           rm -rf .gitignore
           rm -rf plugins
-          mkdir plugins
+          git clone https://dishitpala:${{ secrets.DEMO_PLUGINS_TOKEN }}@github.com/dishitpala/demo-plugins.git plugins
           cd plugins
-          git clone https://dishitpala:${{ secrets.DEMO_PLUGINS_TOKEN }}@github.com/dishitpala/demo-plugins.git .
           git checkout ${{ github.ref_name }}
           rm -rf .git
+          cd ../
           git add ./plugins
           git commit -m "Sync from demo-plugins" || echo "Nothing to commit"
           git push origin ${{ github.ref_name }}
-        working-directory: "/home/runner/work/demo-three"
