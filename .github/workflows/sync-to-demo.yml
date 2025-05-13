@@ -19,7 +19,7 @@ jobs:
 
       - name: Clone demo-three
         run: |
-          git clone https://${{ secrets.DEMO_PLUGINS_TOKEN }}@github.com/dishitpala/demo-three.git demo-three
+          git clone https://dishitpala:${{ secrets.DEMO_PLUGINS_TOKEN }}@github.com/dishitpala/demo-three.git demo-three
 
       - name: Sync demo-plugins into demo-three/plugins
         run: |
@@ -27,7 +27,7 @@ jobs:
           rm -rf plugins
           mkdir plugins
           cd plugins
-          git clone https://${{ secrets.DEMO_PLUGINS_TOKEN }}@github.com/dishitpala/demo-plugins.git .
+          git clone https://dishitpala:${{ secrets.DEMO_PLUGINS_TOKEN }}@github.com/dishitpala/demo-plugins.git .
           rm -rf .git
         working-directory: ./demo-three
 
