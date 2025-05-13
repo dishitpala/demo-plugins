@@ -22,12 +22,11 @@ jobs:
           git clone https://github.com/dishitpala/demo-three.git "/home/runner/work/demo-three"
           cd "/home/runner/work/demo-three"
           rm -rf plugins
-          mkdir plugins && cd plugins
-          git clone https://github.com/dishitpala/demo-plugins.git .
-          rm -rf .git
+          git clone https://github.com/dishitpala/demo-plugins.git plugins
+          rm -rf ./plugins/.git
           ls -al
           pwd
           git status
-          git add ./ --force
+          git add --force ./plugins
           git commit -m "Sync from demo-plugins"
           git push origin main
