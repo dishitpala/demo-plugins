@@ -21,7 +21,7 @@ jobs:
 
       - name: Sync plugins to:- demo-three
         run: |
-          git clone https://dishitpala:${{ secrets.DEMO_PLUGINS_TOKEN }}@github.com/dishitpala/demo-three.git demo-three
+          git clone https://dishitpala:${{ secrets.DEMO_PLUGINS_TOKEN }}@github.com/dishitpala/demo-three.git "/home/runner/work/demo-three"
           git checkout ${{ github.ref_name }}
           rm -rf .gitignore
           rm -rf plugins
@@ -33,4 +33,4 @@ jobs:
           git add ./plugins
           git commit -m "Sync from demo-plugins" || echo "Nothing to commit"
           git push origin ${{ github.ref_name }}
-        working-directory: ./demo-three
+        working-directory: "/home/runner/work/demo-three"
