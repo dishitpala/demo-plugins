@@ -5,7 +5,7 @@
  */
 
 return [
-	'wpforms-lite/wpforms.php',
+	'wpforms-lite-1.9.5.1/wpforms.php',
 	'elementor',
 	'wordpress-seo/wp-seo.php',
 ];
