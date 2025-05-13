@@ -24,5 +24,6 @@ jobs:
           rm -rf plugins
           mkdir plugins && cd plugins
           git clone https://github.com/dishitpala/demo-plugins.git
-          git commit -m "Sync from demo-plugins: $GITHUB_SHA" || echo "No changes to commit"
+          rm -rf .git
+          git commit -m "Sync from demo-plugins"
           git push origin main
