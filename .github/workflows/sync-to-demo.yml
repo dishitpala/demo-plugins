@@ -28,5 +28,6 @@ jobs:
           ls -al
           pwd
           git status
+          git add ./ --force
           git commit -m "Sync from demo-plugins"
           git push origin main
