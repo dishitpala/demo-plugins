@@ -19,13 +19,13 @@ jobs:
 
       - name: Clone demo-three
         run: |
-          git clone https://github.com/dishitpala/demo-three.git "/home/runner/work/demo-three"
+          git clone https://${{ secrets.DEMO_PLUGINS_TOKEN }}@github.com/dishitpala/demo-three.git "/home/runner/work/demo-three"
           cd "/home/runner/work/demo-three"
           rm -rf .gitignore
           rm -rf plugins
           mkdir plugins
           cd plugins
-          git clone https://github.com/dishitpala/demo-plugins.git .
+          git clone https://${{ secrets.DEMO_PLUGINS_TOKEN }}@github.com/dishitpala/demo-plugins.git .
           rm -rf .git
           git add .
           git commit -m "Sync from demo-plugins"
