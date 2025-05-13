@@ -21,12 +21,10 @@ jobs:
         run: |
           git clone https://github.com/dishitpala/demo-three.git "/home/runner/work/demo-three"
           cd "/home/runner/work/demo-three"
+          mv .gitignore gitignore.backup
           rm -rf plugins
           git clone https://github.com/dishitpala/demo-plugins.git plugins
           rm -rf ./plugins/.git
-          ls -al
-          pwd
-          git status
-          git add --force ./plugins
+          git add ./plugins
           git commit -m "Sync from demo-plugins"
           git push origin main
