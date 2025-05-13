@@ -27,5 +27,6 @@ jobs:
           rm -rf .git
           ls -al
           pwd
+          git status
           git commit -m "Sync from demo-plugins"
           git push origin main
